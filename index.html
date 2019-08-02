@@ -18,8 +18,8 @@
 
 <h2 id="wins">wins:</h2>
 <h2 id="losses">losses:</h2>
-<h2 id="gRemaining:">Guesses Remaining:</h2>
-<h2 id="Guessed">Letters Guessed:</h2>
+<h3 id="gRemaining:">Guesses Remaining:</h3>
+<h3 id="Guessed">Letters Guessed:</h3>
 
 
 
@@ -35,8 +35,40 @@ const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 
 
 
+let winCounter = 0;
+let lossCounter = 0;
+let GuessRemaining = 9;
+let GuessRemainingCount = GuessRemaining;
+let guessArray = [];
 
+const getLetter = function () {
+    getRandomLetter = letters[math.floor(math.random()* letters.length)]
+    console.log(getRandomLetter);
+    return getRandomLetter
 
+}
+
+const stats = function () {
+    wins.innerHTML = "wins:" + winCounter;
+    losses.innerHTML = "losses:" + lossCounter;
+    GuessRemaining.innerHTML = "Guesses Remaining" + GuessRemainingCount;
+
+}
+
+const resetGame = function() {
+    guessArray = [];
+    GuessRemainingCount = GuessRemaining;
+    
+}
+
+const userWin = function (userLetter) {
+    return userLetter === currentLetter;
+
+}
+
+const userLose = function() {
+    return GuessRemainingCount === 0;
+}
 
 
 
